@@ -1,0 +1,1 @@
+-- INSERT INTO `user_authorities` VALUES (1,1),(2,1);

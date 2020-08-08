@@ -1,0 +1,93 @@
+-- /* 
+--  * To change this license header, choose License Headers in Project Properties.
+--  * To change this template file, choose Tools | Templates
+--  * and open the template in the editor.
+--  */
+-- /**
+--  * Author:  majid
+--  * Created: 29 Jan, 2020
+--  */
+-- insert into authorities (`id`,`name`,`description`)
+-- values(1,'admin','L-kart Admin'),
+--       (2,'dc-admin','DC Admin'),
+--       (3,'vender','Vendor'),
+--       (4,'driver','Driver'),
+--       (5,'driver-assistant','Driver Assistant');
+-- 
+-- insert into user(`email`,`first_name`,`last_name`,`middle_name`,`password`,`phone_number`,`username`,`user_type`)
+-- values('majid.belim@gmail.com','majid','belim','belim','$2a$10$Bcpfb427LfUIrooUeFWinuzhEoPP98D3r/KDVKHAyfMxaq31DksXW','+918866040882','majidbelim','LKARTADMIN'),
+-- ('vivek@gmail.com','vivek','vivek','gotecha','$2a$10$Bcpfb427LfUIrooUeFWinuzhEoPP98D3r/KDVKHAyfMxaq31DksXW','+918866040881','vivek','DRIVER'),
+-- ('shubham@gmail.com','shubham','nimje','nimje','$2a$10$Bcpfb427LfUIrooUeFWinuzhEoPP98D3r/KDVKHAyfMxaq31DksXW','+918866040883','shubham','DRIVERASSISTANT'),
+-- ('megha@gmail.com','megha','parmar','parmar','$2a$10$Bcpfb427LfUIrooUeFWinuzhEoPP98D3r/KDVKHAyfMxaq31DksXW','+918866040884','megha','VENDOR');
+-- 
+-- 
+-- insert into user_authorities(`user_id`,`authorities_id`)
+-- values(1,1),(2,4),(3,5),(4,3);
+-- 
+-- INSERT INTO `vendor`
+-- (`account_number`,`account_type`,`address1`,`address2`,`address3`
+-- ,`approved_status`,`bank_name`,`branch`,`city`,`country`,`ifsc_code`,`name_of_company`,`owner_name`,`pan_card`,`registered_under`,
+-- `rejection_message`,`single_point_of_contact`,`state`,`type_of_agreement`,`user_status`,`vendor_code`,`zip_code`,`user_id`,`approved_by_id`)
+-- VALUES('1001','SAVINGS','addresssss 1','addresssss 2','addresssss 3',1,'bypeople','vasna','ahemdabad','india','asd7878',
+-- 'bypeople','vgotecha','ads123ads12','PROPRIETORY','nope','+911234567890','gujrat','text','ACTIVE','001','980001','4',1);
+-- 
+-- INSERT INTO `driver`(`aadhar_card_number`,`address1`,`address2`,`address3`,`city`,`country`,`driver_image`,`driving_license`,`pan_card`,`police_verification`,
+-- `state`,`user_status`,`user_id`,`vendor_id`)
+-- VALUES('12347','address 1 ','address 222','address 333','ahemdabad','india','https://homepages.cae.wisc.edu/~ece533/images/airplane.png',
+-- 'abd7894661245','asddsa78778',1,'gujrat','ACTIVE','2','1');
+-- 
+-- INSERT INTO `driver_assistant`
+-- (`aadhar_card_number`,`address1`,`address2`,`address3`,`city`,`country`,`delivery_assistant_image`,`education_qualification`
+-- ,`pan_card`,`police_verification`,`smart_phone`,`state`,`user_status`,`user_id`,`vendor_id`)
+-- VALUES('657144','address 1 ','address 222','address 333','ahemdabad','india','https://homepages.cae.wisc.edu/~ece533/images/airplane.png',
+-- '12','abd789466123123',1,1,'gujrat','ACTIVE','3','1');
+-- 
+-- 
+-- INSERT INTO `vehicle_type_master`
+-- (`carrying_capacity`,`container_type`,`height_of_container`,`length_of_container`,`make`,`model`,`typeof_vehicle`,`status`,
+-- `width_of_container`)
+-- VALUES('10','OPEN','2.59','40','2018','a001','DIESEL','ACTIVE','2.44'),
+-- ('10','OPEN','2.59','40','2018','a001','CNG','ACTIVE','2.44');
+-- 
+-- INSERT INTO `vehicle`
+-- (`model_name`,`national_permit`,`registration_number`,
+-- `status`,`year_of_registration`,`vehicle_type_id`,`vendor_id`)
+-- VALUES('TATA',1,'GJ-01-uk-7878','ACTIVE','2015','1','1'),
+--  ('HONDA',1,'GJ-01-UA-7899','ACTIVE','2019','2','1'),
+-- ('EICHER',1,'GJ-01-FG-8866','ACTIVE','2015','1','1'),
+--  ('BMW',1,'GJ-01-mm-2211','ACTIVE','2019','2','1'),
+--  ('BHARATBENZ',1,'GJ-01-SS-3221','ACTIVE','2019','2','1');
+-- 
+-- INSERT INTO `delivery_center`
+-- (`address1`,`address2`,`city`,`country`,`dc_cold_capacity`,`dc_dry_capacity`,`dc_frozen_capacity`,`dc_head_email`,`dc_head_name`,
+-- `dc_head_phone_number`,`dc_total_capacity`,`delivery_center_name`,`latitude`,`longtitude`,`ops_head_email`,`ops_head_name`,
+-- `ops_head_phone_number`,`ops_support_head_email`,`ops_support_head_name`,`ops_support_head_phone_number`,`state`,
+-- `status`,`zip_code`)
+-- values("address 1","address 2","ahemdabad","india","34.9","12","11","payal@gmail.com","payal","+911122334455","50",
+-- "bypeople","23.049736","72.511726","bhoomi@gmail.com","bhoomi","+912211447788","kartik@gmail.com","kartik","+914578914478",
+-- "Gujrat","ACTIVE","380054");
+-- 
+-- INSERT INTO `vendor_delivery_centers`
+-- (`vendor_id`,`delivery_centers_id`)
+-- VALUES(1,1);
+-- 
+-- INSERT INTO `delivery_point`
+-- (`address1`,`address2`,`allowed_entry_time`,`city`,`country`,`entry_restrictiontime`,`finance_head_client_email`,
+-- `finance_head_client_name`,`finance_head_client_phone_number`,`latitude`,`longtitude`,`restracteddays`,`state`,
+-- `store_incharge_client_email`,`store_incharge_client_name`,`store_incharge_client_phone_number`,`store_location`,`trolley_movement`,
+-- `use_of_lift`,`status`,`zip_code`,`delivery_center_id`,`customer_code`)
+-- VALUES('address 1','address 2','2020-02-08 12:10:09.761000','ahemdabad','india','2020-02-08 12:10:09.761000','finance@gmail.com',
+-- 'financeClient@gmail.com','+91777777777','23.049736','72.511726','SUNDAY','gujarat','storeinchargeclientname@gmail.com',
+-- 'storeinchargeclientname','+918888888888','vasna',1,1,'ACTIVE','3800056','1','00001'),
+-- ('address 11','address 22','2020-02-08 12:10:09.761000','surat','india','2020-02-08 12:10:09.761000','finance11@gmail.com',
+-- 'financeClient11@gmail.com','+9188888888','23.049736','72.511726','SUNDAY','gujarat','storeinchargeclientname11@gmail.com',
+-- 'storeinchargeclientname22','+918877994455','thaltej',1,1,'ACTIVE','3800055','1','00011');
+-- 
+-- INSERT INTO `route`
+-- (`lengh_inkm`,`route_name`,`status`, `number_of_location`)
+-- VALUES("50","C.G.ROAD","ACTIVE", 0);
+-- 
+-- 
+-- INSERT INTO `trip`
+-- (`created_date`,`trip_start_date`,`trip_start_time`,`trip_status`,`vehicle_id`,`delivery_center_id`,`route_id`,`eway_bill`,`trip_end_reading`,`trip_start_reading`)
+-- VALUES("2020-02-13 11:15:29.917000","2020-02-13 11:15:29.917000","2020-02-13 11:15:29.917000","TRIPESTART","1","1","1","0","0","0")
